@@ -20,9 +20,13 @@ namespace AuthenticationCodeApi.Controllers
             
         };
 
-        public IEnumerable<AuthenticationObj> GetAllProducts()
+        public IEnumerable<AuthenticationObj> GetAllObjs()
         {
-            return objs;
+            AuthenticationObj[] objs2 = new AuthenticationObj[] 
+            { 
+                new AuthenticationObj { Id = "BadId", Status = "DRILL"}            
+            };
+            return objs2;
         }
 
         public AuthenticationObj GetObjById(String id)
