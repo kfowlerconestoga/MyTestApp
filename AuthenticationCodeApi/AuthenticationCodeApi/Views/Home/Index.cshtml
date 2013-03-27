@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ASP.NET Web API</title>
+    <link href="../../Content/Site.css" rel="stylesheet" />
+    <script src="../../Scripts/jquery-1.7.1.min.js" 
+        type="text/javascript"></script>
+
+        <script type="text/javascript">
+            
+
+            function find() {
+                var id = $('#authenid').val();
+                $.getJSON("api/authenticationobj/" + id,
+                    function (data) {
+                        var str = data.Status;
+                        $('#authenobj').text(str);
+                    })
+                .fail(
+                    function (jqXHR, textStatus, err) {
+                        $('#authenobj').text("DRILL");
+                    });
+            }
+        </script>
+
+</head>
+<body id="body" >
+    <div class="main-content">
+        <div>
+            <label for="authenid">Authentication Code:</label>
+            <input type="text" id="authenid" size="12"/>
+            <input type="button" value="Send Code" onclick="find();" />
+            <p id="authenobj" />
+        </div>
+    </div>
+</body>
+</html>
